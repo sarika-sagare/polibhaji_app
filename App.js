@@ -17,6 +17,8 @@ import Register from './components/screens/Register';
 import AddMenu from './components/screens/Add_Menu';
 import SeeCount from './components/screens/seeCount';
 import SeeUser from './components/screens/seeUsers';
+import Add_tifin from './components/screens/add_tifin';
+import Tiffin_Count from './components/screens/tifin_count';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {
   widthPercentageToDP as wp,
@@ -33,13 +35,18 @@ function openAdminDrawer(){
   const Drawer = createDrawerNavigator();
 return (
         <Drawer.Navigator initialRouteName='Menu'  drawerContent={props => <CustomDrawer {...props}/>} screenOptions={{drawerLabelStyle:{fontSize:hp('2%')}
-,drawerContentStyle:{backgroundColor:"#FFE4C4",}, drawerActiveBackgroundColor:"#f0e1ff",  headerTitle:()=>(<Image style={styles.image}source={Logo}/>), headerTintColor:'black',headerStyle: { backgroundColor: '#1E90FF',height:hp(7),}}}>
+,drawerContentStyle:{backgroundColor:"#FFE4C4",}, drawerActiveBackgroundColor:"#f0e1ff", drawerType:'front', headerTitle:()=>(<Image style={styles.image}source={Logo}/>), headerTintColor:'black',headerStyle: { backgroundColor: '#1E90FF',height:hp(7),}}}>
           <Drawer.Screen name="Menu" component={Menu} options={{
               drawerLabel:'Add Lunch & snack',
 
             }}/>
+              <Drawer.Screen name="Add_tifin" component={Add_tifin} options={{
+              drawerLabel:'Add_tifin',
+
+            }}/>
+
           <Drawer.Screen name="ChangePassword" component={ChangePassword} options={{
-              title: 'EMPLOYEE SECTION',
+              title: 'ADMIN SECTION',
               drawerLabel:'Change password',
             }}/>
     <Drawer.Screen name="AddMenu" component={AddMenu} options={{
@@ -53,9 +60,14 @@ return (
             }}/>
     <Drawer.Screen name="count" component={SeeCount} options={{
               title: 'ADMIN SECTION',
-              drawerLabel:'Poli Count',
-
+              drawerLabel:'Lunch Count',
             }}/> 
+            
+            <Drawer.Screen name="Tiffin_Count" component={Tiffin_Count} options={{
+              title: 'ADMIN SECTION',
+              drawerLabel:'Tiffin Count',
+            }}/> 
+
     <Drawer.Screen name="SeeUser" component={SeeUser} options={{
               title: 'ADMIN SECTION',
               drawerLabel:'Employee list',
@@ -70,17 +82,20 @@ function openEmployeeDrwaer(){
   const Drawer = createDrawerNavigator();
     return (
         <Drawer.Navigator  drawerContent={props => <CustomDrawer {...props}/>} screenOptions={{drawerLabelStyle:{fontSize:hp('2%')},drawerContentStyle:{backgroundColor:"#FFE4C4",}, 
-         drawerActiveBackgroundColor:"#f0e1ff",  headerTitle:()=>(<Image style={styles.image}
+         drawerActiveBackgroundColor:"#f0e1ff",  drawerType:'front', headerTitle:()=>(<Image style={styles.image}
           source={Logo}/>),headerStyle: { backgroundColor: '#1E90FF',height:hp(7)},headerTintColor: 'black',}}>      
           <Drawer.Screen name="Menu" component={Menu} options={{
             title: 'EMPLOYEE SECTION',
             drawerLabel:'Add Lunch & snack',
           }}/>
+            <Drawer.Screen name="Add_tifin" component={Add_tifin} options={{
+              drawerLabel:'Add_tifin',
+
+            }}/>
       </Drawer.Navigator>
       )
 }
     
-
 
  function MyDrawer() {
 

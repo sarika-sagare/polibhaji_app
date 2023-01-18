@@ -15,7 +15,8 @@ import {
 
 export default function AddMenu({navigation}) {
 
-  const [bhaji,setbhaji]=useState('');
+  const [lunchbhaji,setlunchbhaji]=useState('');
+  const [dinnerbhaji,setdinnerbhaji]=useState('');
   const [extras,setother]=useState(''); 
   const [data,setData]=useState([]);
   const [snack,setsnack]=useState('')
@@ -53,6 +54,7 @@ async function seemenu(){
       }),
     }).then((response) =>response.json()) // get response, convert to json
       .then((json) => {
+        console.log('menu is',json.data)
         setData(json.data);
         setLoading(false)
       })
@@ -67,8 +69,11 @@ async function seemenu(){
   setData('');
   },[]))
 
-  function setBhaji(enteredText){ 
-    setbhaji(enteredText);
+  function setLunchBhaji(enteredText){ 
+    setlunchbhaji(enteredText);
+   }
+   function setDinnerBhaji(enteredText){ 
+    setdinnerbhaji(enteredText);
    }
    function setOther(enteredText){ 
     setother(enteredText);
@@ -80,6 +85,7 @@ async function seemenu(){
 
  async function ConfirmSubmit(){
   const token=await RetrieveData();
+  console.log('lunchbhaji.',lunchbhaji,'snack ',snack,'extras ',extras,'dinnerbhaji ',dinnerbhaji )
     fetch(AddingMenu,{ 
       method: 'post', 
       headers: new Headers({
@@ -89,9 +95,10 @@ async function seemenu(){
       }), 
       body: 
       JSON.stringify({
-        bhaji:bhaji,
+        lunchbhaji:lunchbhaji,
         snaks:snack,
-        extras:extras
+        extras:extras,
+        dinnerbhaji:dinnerbhaji,
        })
     }).then(res=>res.json()).then((response)=>{
       if(response.success==true){
@@ -127,9 +134,11 @@ async function seemenu(){
     <View style={{flex:0.7, paddingBottom:5}}>
       <Text style={styles.text1}>Add Menu</Text>
           <View style={styles.textInput} >
-            <Input label="Add Bhaji :"  textInputConfig={{placeholder:'bhaji',placeholderTextColor:"#808080",Value:data.bhaji,onChangeText:setBhaji}}/>
+            <Input label="Add Bhaji for lunch :"  textInputConfig={{placeholder:'bhaji',placeholderTextColor:"#808080",Value:data.lunchbhaji,onChangeText:setLunchBhaji}}/>
             <Input  label="Add extra items :" textInputConfig={{placeholder:'extras',placeholderTextColor:"#808080",Value:data.extras,onChangeText:setOther}}/>
             <Input label="Add Snack :" textInputConfig={{placeholder:'snack',placeholderTextColor:"#808080",Value:data.snaks,onChangeText:setSnack}}/>
+            <Input label="Add Bhaji for dinner :"  textInputConfig={{placeholder:'bhaji',placeholderTextColor:"#808080",Value:data.dinnerbhaji,onChangeText:setDinnerBhaji}}/>
+
         <View style={styles.login}>
         <PrimaryButton onPressfun={()=>{ConfirmSubmit()}}>Add</PrimaryButton>
         </View>

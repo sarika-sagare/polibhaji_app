@@ -103,7 +103,7 @@ import { useDispatch,useSelector } from 'react-redux';
     }).then((response) =>response.json()) // get response, convert to json
       .then((json) => {
       
-        setMenu(json.data.bhaji);
+        setMenu(json.data.lunchbhaji);
         setextras(json.data.extras);
         setsnacks(json.data.snaks);
       })
@@ -160,7 +160,7 @@ import { useDispatch,useSelector } from 'react-redux';
 
   const [enteredNumber,setEnteredNumber]=useState('');
 
-  const [check, setState] = useState(false);
+  const [check, setState] = useState(true);
     
   const [isClick, setClick] = useState(false);
 
@@ -223,7 +223,7 @@ import { useDispatch,useSelector } from 'react-redux';
       AddMenu();
         if ((check==false & isClick==false & isSelect==false) ){
         Alert.alert(
-            'Somthing went wrong', 'You select nothing',
+            '', 'Please check the checkbox',
             [{text:'okay', style:'destructive',onPress:resetInputHAndler}]
         );
         return;
@@ -362,14 +362,14 @@ import { useDispatch,useSelector } from 'react-redux';
   }
 
   if(choseNumber<=0 | isNaN(choseNumber)){
-    msg='Poli count is null'
+    msg='Poli count is 0'
   }
   else{
     msg='you have entered '+choseNumber+' poli'
   }
 
   if (values<=0 | isNaN(values)){
-   msgb='Bhakari count is null  '
+   msgb='Bhakari count is 0 '
   }
   else{
     msgb='you have entered '+values+' Bhakari'

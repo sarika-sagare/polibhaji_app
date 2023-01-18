@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   TouchableWithoutFeedback,
+  ActivityIndicator
 } from 'react-native';
 import RadioForm from 'react-native-simple-radio-button';
 import PrimaryButton from '../common/PrimaryButton';
@@ -37,7 +38,6 @@ var users = [
 export default function Main() {
   const navigation = useNavigation();
 
-
   useFocusEffect(
     useCallback(() => {
       console.log('asd',drawer),
@@ -52,7 +52,7 @@ export default function Main() {
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   let url;
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const user=useRef('employee');
   const [svalue,setval]=useState(0)
@@ -91,9 +91,6 @@ console.log('user is',user.current)
   }
 
   
-
-
-
   function usernameHandler(enteredText) {
     setusername(enteredText);
   }
@@ -103,6 +100,7 @@ console.log('user is',user.current)
 
   function ConfirmInput() {
     let user;
+    setLoading(true)
     if (username.length < 1) {
       Alert.alert('Somthing went wrong', 'enter valid username', [
         {text: 'okay', style: 'destructive'},
@@ -180,6 +178,8 @@ console.log('user is',user.current)
           style={styles.image}
           source={Logo}
         />
+            {isLoading && <ActivityIndicator size="large" />}
+
         {/* <RadioForm
           style={styles.buttons}
           radio_props={users}
