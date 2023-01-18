@@ -160,7 +160,7 @@ import { useDispatch,useSelector } from 'react-redux';
 
   const [enteredNumber,setEnteredNumber]=useState('');
 
-  const [check, setState] = useState(false);
+  const [check, setState] = useState(true);
     
   const [isClick, setClick] = useState(false);
 

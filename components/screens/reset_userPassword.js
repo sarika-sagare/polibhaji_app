@@ -72,8 +72,7 @@ async function ConfirmSubmit(){
   })
 }
   return (
-    <View style={styles.main}>
-      <TouchableWithoutFeedback 
+    <TouchableWithoutFeedback 
               onPress={()=>{
                 if(isKeyboardVisible==true){
                   Keyboard.dismiss()
@@ -81,6 +80,7 @@ async function ConfirmSubmit(){
                
               }}
               accessible={false}>
+    <View style={styles.main}>
          {/* {isLoading && <ActivityIndicator size="large" />} */}
         <Text style={styles.text}>Change Password of {name} </Text>
         <Input textInputConfig={{placeholder:'Confirm Password', secureTextEntry:true, onChangeText:confirmPass}}/>
@@ -92,9 +92,8 @@ async function ConfirmSubmit(){
     </View>
   </TouchableOpacity>
        </View>
-       </TouchableWithoutFeedback>
     </View>
-   
+   </TouchableWithoutFeedback>
   );
 }
 const styles = StyleSheet.create({

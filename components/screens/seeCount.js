@@ -103,9 +103,9 @@ return (
         }
      const styles = StyleSheet.create({
     container: {padding: 16, paddingTop:30, backgroundColor: '#fff' },
-    head: { height: hp(5), backgroundColor: 'blue' },
-    texth: { textAlign: 'center', fontWeight:'bold',fontSize:hp(2),color:'white'},
-    text: { textAlign: 'center',fontSize:hp(2),color:'black'},
+    head: { height: hp(7), backgroundColor: 'blue' },
+    texth: { textAlign: 'center', fontWeight:'bold',fontSize:wp(3.5),color:'white'},
+    text: { textAlign: 'center',fontSize:wp(4),color:'black'},
     dataWrapper: { marginTop: -1 },
     row: { flexDirection:'row', backgroundColor: '#E7E6E1' } ,
     MainText:{textAlign:"left",fontWeight:"600",fontSize:hp(3),paddingBottom:10,color:'black'},
