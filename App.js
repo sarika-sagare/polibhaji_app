@@ -23,6 +23,7 @@ import {
   heightPercentageToDP as hp,
 
 } from 'react-native-responsive-screen';
+import { Logo } from './src/image';
 
 const store = configureStore();
 
@@ -32,7 +33,7 @@ function openAdminDrawer(){
   const Drawer = createDrawerNavigator();
 return (
         <Drawer.Navigator initialRouteName='Menu'  drawerContent={props => <CustomDrawer {...props}/>} screenOptions={{drawerLabelStyle:{fontSize:hp('2%')}
-,drawerContentStyle:{backgroundColor:"#FFE4C4",}, drawerActiveBackgroundColor:"#f0e1ff",  headerTitle:()=>(<Image style={styles.image}source={require('/home/sarika/react_native/PoliBhajiApp/android/app/src/main/assets/logo.png')}/>), headerTintColor:'black',headerStyle: { backgroundColor: '#1E90FF',height:hp(7),}}}>
+,drawerContentStyle:{backgroundColor:"#FFE4C4",}, drawerActiveBackgroundColor:"#f0e1ff",  headerTitle:()=>(<Image style={styles.image}source={Logo}/>), headerTintColor:'black',headerStyle: { backgroundColor: '#1E90FF',height:hp(7),}}}>
           <Drawer.Screen name="Menu" component={Menu} options={{
               drawerLabel:'Add Lunch & snack',
 
@@ -70,7 +71,7 @@ function openEmployeeDrwaer(){
     return (
         <Drawer.Navigator  drawerContent={props => <CustomDrawer {...props}/>} screenOptions={{drawerLabelStyle:{fontSize:hp('2%')},drawerContentStyle:{backgroundColor:"#FFE4C4",}, 
          drawerActiveBackgroundColor:"#f0e1ff",  headerTitle:()=>(<Image style={styles.image}
-          source={require('/home/sarika/react_native/PoliBhajiApp/android/app/src/main/assets/logo.png')}/>),headerStyle: { backgroundColor: '#1E90FF',height:hp(7)},headerTintColor: 'black',}}>      
+          source={Logo}/>),headerStyle: { backgroundColor: '#1E90FF',height:hp(7)},headerTintColor: 'black',}}>      
           <Drawer.Screen name="Menu" component={Menu} options={{
             title: 'EMPLOYEE SECTION',
             drawerLabel:'Add Lunch & snack',

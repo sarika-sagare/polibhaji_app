@@ -11,9 +11,10 @@ import {
 import RadioForm from 'react-native-simple-radio-button';
 import PrimaryButton from '../common/PrimaryButton';
 import {useNavigation,useFocusEffect} from '@react-navigation/native';
-
+import { Logo } from '../../src/image';
 import {useSelector, useDispatch} from 'react-redux';
 import Input from '../common/input';
+
 
 import {isAdmin, isEmployee,resetState} from './redux/actions/users';
 
@@ -177,7 +178,7 @@ console.log('user is',user.current)
         
         <Image
           style={styles.image}
-          source={require('/home/sarika/react_native/PoliBhajiApp/android/app/src/main/assets/logo.png')}
+          source={Logo}
         />
         {/* <RadioForm
           style={styles.buttons}
